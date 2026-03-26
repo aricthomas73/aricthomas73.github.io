@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPhone App Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F9F7F4;
+      --surface: #FFFFFF;
+      --text: #1A1A1A;
+      --muted: #6B7280;
+      --border: #E5E0D8;
+      --hikes: #2D6A4F;
+      --camino: #B5651D;
+      --points: #1D4ED8;
+      --steps: #C0392B;
+    }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 2rem 60px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .apps-grid {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .app-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .app-card:hover .app-icon { transform: scale(1.05); }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .app-card.hikes { border-left: 4px solid var(--hikes); }
+    .app-card.hikes .app-icon { background: #EAF4EE; }
+    .app-card.hikes:hover { border-color: var(--hikes); }
+
+    .app-card.camino { border-left: 4px solid var(--camino); }
+    .app-card.camino .app-icon { background: #FDF0E6; }
+    .app-card.camino:hover { border-color: var(--camino); }
+
+    .app-card.points { border-left: 4px solid var(--points); }
+    .app-card.points .app-icon { background: #EEF2FF; }
+    .app-card.points:hover { border-color: var(--points); }
+
+    .app-card.steps { border-left: 4px solid var(--steps); }
+    .app-card.steps .app-icon { background: #FEECEC; }
+    .app-card.steps:hover { border-color: var(--steps); }
+
+    .app-info h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .app-info p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .app-arrow {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-strip {
+      background: var(--text);
+      color: #fff;
+      text-align: center;
+      padding: 48px 2rem;
+    }
+
+    .contact-strip p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1rem;
+    }
+
+    .contact-strip h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+    .contact-btn:hover { opacity: 0.85; }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">iPhone App Support</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">App Support</p>
+  <h1>We're here to <em>help you</em> get the most out of every app.</h1>
+  <p>Find support, submit feedback, or report an issue for any of our iPhone apps below.</p>
+</section>
+
+<div class="apps-grid">
+  <a href="100-greatest-hikes.html" class="app-card hikes">
+    <div class="app-icon">🏔️</div>
+    <div class="app-info">
+      <h2>100 Greatest Hikes</h2>
+      <p>Explore and track the world's most iconic hiking trails.</p>
+    </div>
+    <span class="app-arrow">›</span>
+  </a>
+
+  <a href="camino-tracker.html" class="app-card camino">
+    <div class="app-icon">🚶</div>
+    <div class="app-info">
+      <h2>Camino Tracker</h2>
+      <p>Plan, track, and relive your Camino de Santiago journey.</p>
+    </div>
+    <span class="app-arrow">›</span>
+  </a>
+
+  <a href="points-tracker.html" class="app-card points">
+    <div class="app-icon">✈️</div>
+    <div class="app-info">
+      <h2>Reward Points Tracker</h2>
+      <p>Manage your credit card points, miles, and transfer partners.</p>
+    </div>
+    <span class="app-arrow">›</span>
+  </a>
+
+  <a href="step-journey.html" class="app-card steps">
+    <div class="app-icon">👟</div>
+    <div class="app-info">
+      <h2>Step Journey Tracker</h2>
+      <p>Track daily steps, earn trophies, and build healthy habits.</p>
+    </div>
+    <span class="app-arrow">›</span>
+  </a>
+</div>
+
+<div class="contact-strip">
+  <p>General inquiries</p>
+  <h3>Need help with something else?</h3>
+  <a href="mailto:aricthomas73@gmail.com" class="contact-btn">Email Support</a>
+</div>
+
+<footer>
+  <p>© 2025 Aric Thomas · <a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

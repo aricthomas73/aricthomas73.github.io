@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Greatest Hikes – Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F9F7F4; --surface: #FFFFFF; --text: #1A1A1A;
+      --muted: #6B7280; --border: #E5E0D8; --accent: #2D6A4F;
+      --accent-light: #EAF4EE; --accent-dark: #1B4332;
+    }
+    body { font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); }
+
+    nav {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      background: var(--accent-dark);
+      color: #fff;
+      padding: 64px 2rem;
+      text-align: center;
+    }
+    .hero-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.8rem; }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; margin-bottom: 0.8rem; }
+    .hero p { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 440px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .appstore-btn {
+      display: inline-block; background: #fff; color: var(--accent-dark);
+      text-decoration: none; padding: 0.7rem 1.8rem; border-radius: 50px;
+      font-weight: 600; font-size: 0.875rem; transition: opacity 0.2s;
+    }
+    .appstore-btn:hover { opacity: 0.85; }
+
+    .content { max-width: 720px; margin: 0 auto; padding: 60px 2rem; }
+
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem;
+    }
+
+    .about-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem; margin-bottom: 2.5rem;
+    }
+    .about-block h2 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; }
+    .about-block p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+
+    .faq-title { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 1.5rem; }
+
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 12px;
+      margin-bottom: 0.75rem; overflow: hidden; background: var(--surface);
+    }
+    .faq-question {
+      width: 100%; background: none; border: none; text-align: left;
+      padding: 1.1rem 1.5rem; font-family: 'Figtree', sans-serif;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-question:hover { background: var(--accent-light); }
+    .faq-chevron { color: var(--accent); font-size: 1.1rem; transition: transform 0.2s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+    .faq-item.open .faq-answer { display: block; }
+
+    .contact-card {
+      background: var(--accent); color: #fff;
+      border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem;
+    }
+    .contact-card h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; margin-bottom: 0.5rem; }
+    .contact-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .contact-btn {
+      display: inline-block; background: #fff; color: var(--accent);
+      text-decoration: none; padding: 0.7rem 2rem; border-radius: 50px;
+      font-weight: 600; font-size: 0.875rem; transition: opacity 0.2s;
+    }
+    .contact-btn:hover { opacity: 0.85; }
+
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">← All Apps</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <span class="hero-icon">🏔️</span>
+  <p class="hero-eyebrow">App Support</p>
+  <h1>100 Greatest Hikes</h1>
+  <p>Explore, track, and conquer the world's most iconic trails — all in one place.</p>
+  <a href="#" class="appstore-btn">View on App Store</a>
+</div>
+
+<div class="content">
+
+  <div class="about-block">
+    <p class="section-label">About</p>
+    <h2>What is 100 Greatest Hikes?</h2>
+    <p>100 Greatest Hikes lets you explore and track progress across 100 of the world's most celebrated hiking trails. Browse routes on an interactive map, mark trails as completed, in progress, or on your wish list, and discover what makes each hike special.</p>
+  </div>
+
+  <p class="section-label">FAQ</p>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">How do I mark a hike as completed? <span class="faq-chevron">▾</span></button>
+    <div class="faq-answer">Tap on any trail on the map or in the list view, then use the status selector to mark it as Completed, In Progress, or Wish List.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Can I track multiple hikes at once? <span class="faq-chevron">▾</span></button>
+    <div class="faq-answer">Yes — you can have as many trails set to "In Progress" as you like. Your progress is saved automatically.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Does the app work offline? <span class="faq-chevron">▾</span></button>
+    <div class="faq-answer">Trail data and your personal progress are stored on your device. Some map tile loading may require an internet connection.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How do I reset my progress? <span class="faq-chevron">▾</span></button>
+    <div class="faq-answer">Go to Settings within the app and tap "Reset All Progress." This action cannot be undone, so please back up your data first if needed.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">I found incorrect trail information. How do I report it? <span class="faq-chevron">▾</span></button>
+    <div class="faq-answer">Please email us with the trail name and the correction. We review all reports and update the app regularly.</div>
+  </div>
+
+  <div class="contact-card">
+    <h3>Still need help?</h3>
+    <p>Send us an email and we'll get back to you as soon as possible.</p>
+    <a href="mailto:aricthomas73@gmail.com" class="contact-btn">Email Support</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Aric Thomas · <a href="privacy-policy.html">Privacy Policy</a> · <a href="index.html">All Apps</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
