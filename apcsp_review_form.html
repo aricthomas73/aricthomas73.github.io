@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AP Computer Science Principles - Final Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Roboto', 'Google Sans', Arial, sans-serif;
+    background: #f0ebf8;
+    min-height: 100vh;
+    padding: 12px;
+  }
+
+  .form-container {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .header-card {
+    background: #fff;
+    border-radius: 8px;
+    border-top: 10px solid #673ab7;
+    padding: 24px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .header-card h1 {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 4px;
+  }
+
+  .header-card .desc {
+    font-size: 14px;
+    color: #202124;
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+
+  .header-card .required-note {
+    font-size: 14px;
+    color: #d93025;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #dadce0;
+  }
+
+  .question-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    border-left: 4px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .question-card:hover, .question-card.active {
+    border-left-color: #673ab7;
+  }
+
+  .question-card .q-text {
+    font-size: 16px;
+    color: #202124;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .question-card .q-text .required {
+    color: #d93025;
+    margin-left: 4px;
+  }
+
+  .question-num {
+    font-size: 12px;
+    color: #70757a;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .radio-group { display: flex; flex-direction: column; gap: 2px; }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .radio-option:hover { background: #f8f0ff; }
+
+  .radio-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #5f6368;
+    border-radius: 50%;
+    margin-right: 12px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .radio-option input[type="radio"]:checked {
+    border-color: #673ab7;
+  }
+
+  .radio-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 10px; height: 10px;
+    background: #673ab7;
+    border-radius: 50%;
+  }
+
+  .radio-option label {
+    font-size: 14px;
+    color: #202124;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+
+  .btn-next, .btn-back, .btn-submit {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .btn-next, .btn-submit {
+    background: #673ab7;
+    color: #fff;
+  }
+
+  .btn-next:hover, .btn-submit:hover {
+    background: #7c4dcc;
+    box-shadow: 0 1px 3px rgba(103,58,183,0.4);
+  }
+
+  .btn-back {
+    background: none;
+    color: #673ab7;
+    font-weight: 500;
+  }
+
+  .btn-back:hover { background: #f8f0ff; }
+
+  .progress-bar {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .progress-track {
+    height: 8px;
+    background: #e0d4f0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #673ab7;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  .progress-text {
+    font-size: 12px;
+    color: #70757a;
+    margin-top: 6px;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  .footer-text {
+    text-align: center;
+    font-size: 12px;
+    color: #70757a;
+    padding: 16px;
+  }
+
+  .footer-text a {
+    color: #673ab7;
+    text-decoration: none;
+  }
+
+  .google-logo {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .google-logo span {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 22px;
+    letter-spacing: -0.5px;
+  }
+
+  .google-logo .g-blue { color: #4285f4; }
+  .google-logo .g-red { color: #ea4335; }
+  .google-logo .g-yellow { color: #fbbc04; }
+  .google-logo .g-green { color: #34a853; }
+
+  .email-line {
+    font-size: 14px;
+    color: #202124;
+    margin-top: 8px;
+  }
+
+  .email-line span { color: #673ab7; }
+
+  .rickroll-container {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #000;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rickroll-container.show {
+    display: flex;
+  }
+
+  .rickroll-container iframe {
+    width: 90vw;
+    max-width: 800px;
+    height: 50vh;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .rickroll-text {
+    color: #fff;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 28px;
+    margin-top: 24px;
+    text-align: center;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .rickroll-subtext {
+    color: #aaa;
+    font-size: 16px;
+    margin-top: 8px;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .section-header {
+    font-size: 18px;
+    font-family: 'Google Sans', sans-serif;
+    color: #202124;
+    margin-bottom: 4px;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: #70757a;
+    margin-top: 4px;
+  }
+
+  .validation-error {
+    color: #d93025;
+    font-size: 12px;
+    margin-top: 8px;
+    display: none;
+  }
+
+  .question-card.error {
+    border-left-color: #d93025;
+  }
+
+  .question-card.error .validation-error {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+  <div class="google-logo">
+    <span>
+      <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+    </span>
+    <span style="color:#5f6368; font-size:22px;"> Forms</span>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header-card">
+    <h1>AP CSP - Create Task Final Review</h1>
+    <div class="desc">This review quiz will help you prepare for the written response portion of the AP Computer Science Principles exam. Answer each question carefully. Your responses are being recorded.</div>
+    <div class="email-line">Signed in as <span>student@school.edu</span></div>
+    <div class="required-note">* Indicates required question</div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-bar">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+    <div class="progress-text" id="progressText">Question 0 of 12</div>
+  </div>
+
+  <!-- PAGE 1: Questions 1-3 -->
+  <div class="page active" id="page1">
+    <div class="question-card" data-page="1">
+      <div class="question-num">Question 1 of 12</div>
+      <div class="q-text">Which of the following best describes the difference between the <em>purpose</em> and <em>functionality</em> of a program?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q1" id="q1a"><label for="q1a">Purpose describes how the program works; functionality describes why it was created</label></div>
+        <div class="radio-option"><input type="radio" name="q1" id="q1b"><label for="q1b">Purpose describes why the program exists; functionality describes what the program does</label></div>
+        <div class="radio-option"><input type="radio" name="q1" id="q1c"><label for="q1c">They mean the same thing and can be used interchangeably</label></div>
+        <div class="radio-option"><input type="radio" name="q1" id="q1d"><label for="q1d">Purpose refers to the user interface; functionality refers to the backend code</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="question-card" data-page="1">
+      <div class="question-num">Question 2 of 12</div>
+      <div class="q-text">A student writes a program that helps users track daily water intake. Which of the following is an example of <em>valid input</em> for this program?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q2" id="q2a"><label for="q2a">The user entering "eight" as text instead of the number 8</label></div>
+        <div class="radio-option"><input type="radio" name="q2" id="q2b"><label for="q2b">The user entering the number 8 for glasses of water consumed</label></div>
+        <div class="radio-option"><input type="radio" name="q2" id="q2c"><label for="q2c">The user entering -3 for glasses of water consumed</label></div>
+        <div class="radio-option"><input type="radio" name="q2" id="q2d"><label for="q2d">The user leaving the input field blank and clicking submit</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="question-card" data-page="1">
+      <div class="question-num">Question 3 of 12</div>
+      <div class="q-text">In the context of the Create Task, what does the <em>Personalized Project Reference</em> contain?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q3" id="q3a"><label for="q3a">The student's entire program source code</label></div>
+        <div class="radio-option"><input type="radio" name="q3" id="q3b"><label for="q3b">Code segments related to the student's list and procedure</label></div>
+        <div class="radio-option"><input type="radio" name="q3" id="q3c"><label for="q3c">A video demonstration of the program running</label></div>
+        <div class="radio-option"><input type="radio" name="q3" id="q3d"><label for="q3d">The College Board's scoring rubric</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="nav-buttons">
+      <div></div>
+      <button class="btn-next" onclick="nextPage(1)">Next</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Questions 4-6 -->
+  <div class="page" id="page2">
+    <div class="question-card" data-page="2">
+      <div class="question-num">Question 4 of 12</div>
+      <div class="q-text">A procedure contains the Boolean expression <code>(score &gt;= 70 AND attempts &lt; 3)</code>. Which values would cause this expression to evaluate to <strong>false</strong>?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q4" id="q4a"><label for="q4a">score = 85, attempts = 1</label></div>
+        <div class="radio-option"><input type="radio" name="q4" id="q4b"><label for="q4b">score = 70, attempts = 2</label></div>
+        <div class="radio-option"><input type="radio" name="q4" id="q4c"><label for="q4c">score = 65, attempts = 2</label></div>
+        <div class="radio-option"><input type="radio" name="q4" id="q4d"><label for="q4d">score = 90, attempts = 0</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="question-card" data-page="2">
+      <div class="question-num">Question 5 of 12</div>
+      <div class="q-text">Which of the following is an example of a <em>logic error</em> in a procedure?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q5" id="q5a"><label for="q5a">The program crashes when it receives unexpected input</label></div>
+        <div class="radio-option"><input type="radio" name="q5" id="q5b"><label for="q5b">The program runs without errors but produces incorrect output</label></div>
+        <div class="radio-option"><input type="radio" name="q5" id="q5c"><label for="q5c">The program has a syntax error that prevents compilation</label></div>
+        <div class="radio-option"><input type="radio" name="q5" id="q5d"><label for="q5d">The program takes too long to execute</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="question-card" data-page="2">
+      <div class="question-num">Question 6 of 12</div>
+      <div class="q-text">A program uses a list called <code>studentNames</code> and iterates through the entire list using a loop. If several new names are added to the end of the list, what is most likely true about the loop?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q6" id="q6a"><label for="q6a">The loop will need to be completely rewritten</label></div>
+        <div class="radio-option"><input type="radio" name="q6" id="q6b"><label for="q6b">The loop will automatically process the new elements if it uses FOR EACH</label></div>
+        <div class="radio-option"><input type="radio" name="q6" id="q6c"><label for="q6c">The loop will crash because the list size changed</label></div>
+        <div class="radio-option"><input type="radio" name="q6" id="q6d"><label for="q6d">The new elements will be ignored by the program entirely</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevPage(2)">Back</button>
+      <button class="btn-next" onclick="nextPage(2)">Next</button>
+    </div>
+  </div>
+
+  <!-- PAGE 3: Questions 7-9 -->
+  <div class="page" id="page3">
+    <div class="question-card" data-page="3">
+      <div class="question-num">Question 7 of 12</div>
+      <div class="q-text">Which of the following best explains how using a <em>procedure with parameters</em> manages complexity in a program?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q7" id="q7a"><label for="q7a">It makes the code run faster by reducing memory usage</label></div>
+        <div class="radio-option"><input type="radio" name="q7" id="q7b"><label for="q7b">It allows the same block of code to be reused with different values without rewriting it</label></div>
+        <div class="radio-option"><input type="radio" name="q7" id="q7c"><label for="q7c">It prevents other programmers from viewing the source code</label></div>
+        <div class="radio-option"><input type="radio" name="q7" id="q7d"><label for="q7d">It automatically fixes any logic errors in the code</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="question-card" data-page="3">
+      <div class="question-num">Question 8 of 12</div>
+      <div class="q-text">A programmer stores test scores in separate variables: <code>score1</code>, <code>score2</code>, <code>score3</code>, etc. instead of using a list. Which of the following is a disadvantage of this approach?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q8" id="q8a"><label for="q8a">Individual variables are always slower than lists</label></div>
+        <div class="radio-option"><input type="radio" name="q8" id="q8b"><label for="q8b">You cannot use iteration to process all the scores efficiently</label></div>
+        <div class="radio-option"><input type="radio" name="q8" id="q8c"><label for="q8c">Variables cannot store numeric values</label></div>
+        <div class="radio-option"><input type="radio" name="q8" id="q8d"><label for="q8d">The program will produce a syntax error</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="question-card" data-page="3">
+      <div class="question-num">Question 9 of 12</div>
+      <div class="q-text">Consider a procedure <code>findItem(itemList, target)</code> that searches a list and returns the index of the target. A programmer calls <code>findItem(myList, "pizza")</code>. Which would produce the <strong>same outcome</strong> if <code>"pizza"</code> appears twice in the list?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q9" id="q9a"><label for="q9a">findItem(myList, "Pizza") — because capitalization doesn't matter</label></div>
+        <div class="radio-option"><input type="radio" name="q9" id="q9b"><label for="q9b">findItem(myList, "burger") — because any food item works the same</label></div>
+        <div class="radio-option"><input type="radio" name="q9" id="q9c"><label for="q9c">It depends on whether the procedure returns the first occurrence or all occurrences</label></div>
+        <div class="radio-option"><input type="radio" name="q9" id="q9d"><label for="q9d">No other call can produce the same outcome</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevPage(3)">Back</button>
+      <button class="btn-next" onclick="nextPage(3)">Next</button>
+    </div>
+  </div>
+
+  <!-- PAGE 4: Question 10 (THE TRAP) -->
+  <div class="page" id="page4">
+    <div class="question-card" data-page="4">
+      <div class="question-num">Question 10 of 12</div>
+      <div class="q-text">A student's program includes a procedure that calculates a letter grade based on a numeric score. The procedure uses the following selection logic:<br><br>
+      <code style="display:block;background:#f8f9fa;padding:12px;border-radius:4px;margin:8px 0;font-size:13px;line-height:1.6;">
+      IF score >= 90<br>
+      &nbsp;&nbsp;grade ← "A"<br>
+      ELSE IF score >= 80<br>
+      &nbsp;&nbsp;grade ← "B"<br>
+      ELSE IF score >= 70<br>
+      &nbsp;&nbsp;grade ← "C"<br>
+      ELSE<br>
+      &nbsp;&nbsp;grade ← "F"
+      </code>
+      <br>Another programmer modifies the procedure by replacing all <code>ELSE IF</code> statements with separate <code>IF</code> statements. What type of error does this introduce?<span class="required">*</span></div>
+      <div class="radio-group">
+        <div class="radio-option"><input type="radio" name="q10" id="q10a"><label for="q10a">A syntax error, because IF statements cannot be used without ELSE</label></div>
+        <div class="radio-option"><input type="radio" name="q10" id="q10b"><label for="q10b">A logic error, because a score of 95 would be assigned multiple grades</label></div>
+        <div class="radio-option"><input type="radio" name="q10" id="q10c"><label for="q10c">A runtime error, because the variable grade is assigned more than once</label></div>
+        <div class="radio-option"><input type="radio" name="q10" id="q10d"><label for="q10d">No error — the program would behave the same way</label></div>
+      </div>
+      <div class="validation-error">This is a required question</div>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="btn-back" onclick="prevPage(4)">Back</button>
+      <button class="btn-submit" onclick="rickroll()">Submit</button>
+    </div>
+  </div>
+
+  <div class="footer-text">
+    This content is neither created nor endorsed by Google. <a href="#">Report Abuse</a> - <a href="#">Terms of Service</a> - <a href="#">Privacy Policy</a>
+  </div>
+  <div class="footer-text" style="padding-top:0;">
+    <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span> Forms
+  </div>
+</div>
+
+<!-- RICKROLL -->
+<div class="rickroll-container" id="rickroll">
+  <iframe id="rickVideo" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="rickroll-text">Mr. Thomas says: Never gonna give you a bad grade!</div>
+  <div class="rickroll-subtext">...but seriously, go study for the exam</div>
+</div>
+
+<script>
+  const totalQuestions = 10;
+  const questionsPerPage = [3, 3, 3, 1];
+  let currentPage = 1;
+
+  function getAnsweredCount(pageNum) {
+    const cards = document.querySelectorAll(`#page${pageNum} .question-card`);
+    let answered = 0;
+    cards.forEach(card => {
+      const radios = card.querySelectorAll('input[type="radio"]');
+      radios.forEach(r => { if (r.checked) answered++; });
+    });
+    return answered;
+  }
+
+  function validatePage(pageNum) {
+    const cards = document.querySelectorAll(`#page${pageNum} .question-card`);
+    let allAnswered = true;
+    cards.forEach(card => {
+      const radios = card.querySelectorAll('input[type="radio"]');
+      let hasAnswer = false;
+      radios.forEach(r => { if (r.checked) hasAnswer = true; });
+      if (!hasAnswer) {
+        card.classList.add('error');
+        allAnswered = false;
+      } else {
+        card.classList.remove('error');
+      }
+    });
+    return allAnswered;
+  }
+
+  function updateProgress() {
+    let total = 0;
+    for (let i = 1; i <= currentPage; i++) {
+      total += getAnsweredCount(i);
+    }
+    for (let i = currentPage + 1; i <= 4; i++) {
+      total += getAnsweredCount(i);
+    }
+    const pct = Math.round((total / totalQuestions) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = `${total} of ${totalQuestions} questions answered`;
+  }
+
+  function nextPage(from) {
+    if (!validatePage(from)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    document.getElementById('page' + from).classList.remove('active');
+    document.getElementById('page' + (from + 1)).classList.add('active');
+    currentPage = from + 1;
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function prevPage(from) {
+    document.getElementById('page' + from).classList.remove('active');
+    document.getElementById('page' + (from - 1)).classList.add('active');
+    currentPage = from - 1;
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function rickroll() {
+    if (!validatePage(4)) return;
+    const rr = document.getElementById('rickroll');
+    rr.classList.add('show');
+    document.getElementById('rickVideo').src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&start=0';
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.querySelectorAll('input[type="radio"]').forEach(r => {
+    r.addEventListener('change', () => {
+      r.closest('.question-card').classList.remove('error');
+      updateProgress();
+    });
+  });
+</script>
+
+</body>
+</html>
