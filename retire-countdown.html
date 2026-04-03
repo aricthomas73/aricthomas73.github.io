@@ -3,451 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Retire Countdown - App Support</title>
+  <title>Retire Countdown – Support</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #F9F7F4;
-      --surface: #FFFFFF;
-      --text: #1A1A1A;
-      --muted: #6B7280;
-      --border: #E5E0D8;
-      --accent: #C4593A;
-      --accent-light: #FDF0EB;
-      --accent-dark: #8B3A22;
+      --bg: #F9F7F4; --surface: #FFFFFF; --text: #1A1A1A;
+      --muted: #6B7280; --border: #E5E0D8; --accent: #C4593A;
+      --accent-light: #FDF0EB; --accent-dark: #8B3A22;
     }
-
-    body {
-      font-family: 'Figtree', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    nav {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-brand {
-      font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text);
-      text-decoration: none;
-    }
-
+    body { font-family: 'Figtree', sans-serif; background: var(--bg); color: var(--text); }
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.1rem; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
-
-    .hero {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 80px 2rem 60px;
-      text-align: center;
-    }
-
-    .hero-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 26px;
-      margin: 0 auto 2rem;
-      background: linear-gradient(to bottom, #0F1535 0%, #1A2654 35%, #C4593A 65%, #E8964A 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 30px rgba(196, 89, 58, 0.25);
-    }
-
-    .hero-icon svg {
-      width: 64px;
-      height: 64px;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero h1 {
-      font-family: 'Fraunces', serif;
-      font-size: 2.8rem;
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .appstore-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--text);
-      color: #fff;
-      padding: 0.8rem 1.6rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .appstore-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .appstore-btn svg { width: 20px; height: 20px; }
-
-    .contact-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--accent-light);
-      color: var(--accent-dark);
-      padding: 0.8rem 1.6rem;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      border: 1px solid rgba(196, 89, 58, 0.15);
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      background: #FADED4;
-    }
-
-    .features {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem 60px;
-    }
-
-    .features h2 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .feature-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.8rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    }
-
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--accent-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-
-    .feature-card h3 {
-      font-weight: 600;
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .feature-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .faq {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem 60px;
-    }
-
-    .faq h2 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .faq-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      margin-bottom: 0.75rem;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 1.2rem 1.5rem;
-      font-family: 'Figtree', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-question::after {
-      content: '+';
-      font-size: 1.4rem;
-      font-weight: 300;
-      color: var(--muted);
-      transition: transform 0.3s;
-    }
-
-    .faq-item.open .faq-question::after {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-    }
-
-    .faq-answer-inner {
-      padding: 0 1.5rem 1.2rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .contact-strip {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 60px 2rem;
-      text-align: center;
-    }
-
-    .contact-strip h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-strip p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    footer a:hover { color: var(--text); }
-
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 2rem; }
-      .hero { padding: 50px 1.5rem 40px; }
-      .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.8rem; }
-      .features-grid { grid-template-columns: 1fr; }
-    }
+    .hero { background: linear-gradient(to bottom, #0F1535, #1A2654 40%, #C4593A 70%, #E8964A); color: #fff; padding: 64px 2rem; text-align: center; }
+    .hero-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .hero-icon svg { width: 56px; height: 56px; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 0.8rem; }
+    .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; margin-bottom: 0.8rem; }
+    .hero p { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 440px; margin: 0 auto 1.5rem; line-height: 1.7; }
+    .appstore-btn { display: inline-block; background: #fff; color: var(--accent-dark); text-decoration: none; padding: 0.7rem 1.8rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; transition: opacity 0.2s; }
+    .appstore-btn:hover { opacity: 0.85; }
+    .content { max-width: 720px; margin: 0 auto; padding: 60px 2rem; }
+    .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+    .about-block { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2.5rem; }
+    .about-block h2 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; }
+    .about-block p { color: var(--muted); line-height: 1.75; font-size: 0.95rem; }
+    .faq-title { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 300; margin-bottom: 1.5rem; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; background: var(--surface); }
+    .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 1.1rem 1.5rem; font-family: 'Figtree', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question:hover { background: var(--accent-light); }
+    .faq-chevron { color: var(--accent); font-size: 1.1rem; transition: transform 0.2s; }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer { display: none; padding: 0 1.5rem 1.1rem; color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+    .faq-item.open .faq-answer { display: block; }
+    .contact-card { background: var(--accent); color: #fff; border-radius: 16px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+    .contact-card h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; margin-bottom: 0.5rem; }
+    .contact-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .contact-btn { display: inline-block; background: #fff; color: var(--accent); text-decoration: none; padding: 0.7rem 2rem; border-radius: 50px; font-weight: 600; font-size: 0.875rem; transition: opacity 0.2s; }
+    .contact-btn:hover { opacity: 0.85; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--muted); }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-brand">App Support</a>
+  <a class="nav-brand" href="index.html">&larr; All Apps</a>
   <ul class="nav-links">
-    <li><a href="index.html">All Apps</a></li>
-    <li><a href="privacy-policy.html">Privacy</a></li>
-    <li><a href="mailto:aricthomas73@gmail.com">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
   </ul>
 </nav>
 
 <div class="hero">
-  <div class="hero-icon">
-    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="8" y1="34" x2="56" y2="34" stroke="#FFD4A0" stroke-width="1.5" stroke-opacity="0.6"/>
-      <circle cx="32" cy="34" r="11" fill="#FFD4A0" clip-path="url(#sunClip)"/>
-      <clipPath id="sunClip"><rect x="0" y="0" width="64" height="34"/></clipPath>
-      <line x1="32" y1="34" x2="32" y2="18" stroke="#FFD4A0" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.7"/>
-      <line x1="32" y1="34" x2="22" y2="21" stroke="#FFD4A0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.5"/>
-      <line x1="32" y1="34" x2="42" y2="21" stroke="#FFD4A0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.5"/>
-      <line x1="32" y1="34" x2="16" y2="28" stroke="#FFD4A0" stroke-width="1" stroke-linecap="round" stroke-opacity="0.4"/>
-      <line x1="32" y1="34" x2="48" y2="28" stroke="#FFD4A0" stroke-width="1" stroke-linecap="round" stroke-opacity="0.4"/>
+  <span class="hero-icon">
+    <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="6" y1="30" x2="50" y2="30" stroke="#FFD4A0" stroke-width="1.5" stroke-opacity="0.6"/>
+      <circle cx="28" cy="30" r="10" fill="#FFD4A0" clip-path="url(#sunClipHero)"/>
+      <clipPath id="sunClipHero"><rect x="0" y="0" width="56" height="30"/></clipPath>
+      <line x1="28" y1="30" x2="28" y2="16" stroke="#FFD4A0" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.7"/>
+      <line x1="28" y1="30" x2="19" y2="19" stroke="#FFD4A0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.5"/>
+      <line x1="28" y1="30" x2="37" y2="19" stroke="#FFD4A0" stroke-width="1.2" stroke-linecap="round" stroke-opacity="0.5"/>
     </svg>
-  </div>
-
-  <div class="hero-eyebrow">Retirement Planning</div>
+  </span>
+  <p class="hero-eyebrow">App Support</p>
   <h1>Retire Countdown</h1>
-  <p>A pension-focused retirement countdown timer. See exactly how many years, months, and days stand between you and your next chapter.</p>
-
-  <div class="hero-buttons">
-    <a href="#" class="appstore-btn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      View on App Store
-    </a>
-    <a href="mailto:aricthomas73@gmail.com" class="contact-btn">
-      Get Support
-    </a>
-  </div>
+  <p>A pension-focused retirement countdown timer. See exactly when your next chapter begins.</p>
+  <a href="#" class="appstore-btn">View on App Store</a>
 </div>
 
-<div class="features">
-  <h2>What's inside</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">&#9201;</div>
-      <h3>Live Countdown</h3>
-      <p>See your retirement date counting down in real time — years, months, days, hours, minutes, and seconds.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#127963;</div>
-      <h3>Pension Systems</h3>
-      <p>Built for pension-based retirement timelines. Set your service start date and target retirement date.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#128200;</div>
-      <h3>Pension Estimates</h3>
-      <p>Estimate your monthly pension based on your years of service, age factor, and salary information.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#127775;</div>
-      <h3>Milestones</h3>
-      <p>Track key milestones on your journey to retirement — service year anniversaries, age-based eligibility, and more.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#128274;</div>
-      <h3>Pro Features</h3>
-      <p>Unlock additional pension calculators, multiple retirement scenarios, and home screen widgets with Pro.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">&#128241;</div>
-      <h3>Widgets</h3>
-      <p>Add a countdown widget to your home screen so your retirement date is always front and center.</p>
-    </div>
-  </div>
-</div>
+<div class="content">
 
-<div class="faq">
-  <h2>Common questions</h2>
+  <div class="about-block">
+    <p class="section-label">About</p>
+    <h2>What is Retire Countdown?</h2>
+    <p>Retire Countdown helps you track your journey to retirement with a live countdown timer. Built for pension-based retirement planning, the app lets you enter your service details and retirement targets, estimate your monthly pension based on years of service and salary, track milestones, and add a countdown widget to your home screen so your retirement date is always front and center.</p>
+  </div>
+
+  <p class="section-label">FAQ</p>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
 
   <div class="faq-item">
-    <button class="faq-question">What pension systems does Retire Countdown support?</button>
-    <div class="faq-answer">
-      <div class="faq-answer-inner">Retire Countdown is designed for pension-based retirement planning. Enter your service details and retirement targets, and the app handles the rest. We plan to expand support for additional pension systems in future updates.</div>
-    </div>
+    <button class="faq-question">What pension systems does Retire Countdown support? <span class="faq-chevron">&#9662;</span></button>
+    <div class="faq-answer">Retire Countdown is designed for pension-based retirement planning. Enter your service details and retirement targets, and the app handles the rest. We plan to expand support for additional pension systems in future updates.</div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">How accurate are the pension estimates?</button>
-    <div class="faq-answer">
-      <div class="faq-answer-inner">The estimates are based on publicly available pension formulas and the information you provide (years of service, salary, retirement age). They are intended to give you a general picture and should not be used as official financial advice. Always verify with your pension system's official resources.</div>
-    </div>
+    <button class="faq-question">How accurate are the pension estimates? <span class="faq-chevron">&#9662;</span></button>
+    <div class="faq-answer">The estimates are based on publicly available pension formulas and the information you provide (years of service, salary, retirement age). They are intended to give you a general picture and should not be used as official financial advice. Always verify with your pension system's official resources.</div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Is my personal information stored or shared?</button>
-    <div class="faq-answer">
-      <div class="faq-answer-inner">No. All data is stored locally on your device using Apple's SwiftData framework. Nothing is transmitted to external servers. Your salary, service dates, and pension details never leave your phone.</div>
-    </div>
+    <button class="faq-question">Is my personal information stored or shared? <span class="faq-chevron">&#9662;</span></button>
+    <div class="faq-answer">No. All data is stored locally on your device using Apple's SwiftData framework. Nothing is transmitted to external servers. Your salary, service dates, and pension details never leave your phone.</div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">What does Pro include?</button>
-    <div class="faq-answer">
-      <div class="faq-answer-inner">The Pro upgrade unlocks additional pension calculation tools, the ability to compare multiple retirement scenarios side by side, and home screen widgets showing your countdown. It's a one-time purchase — no subscription.</div>
-    </div>
+    <button class="faq-question">Does the app include widgets? <span class="faq-chevron">&#9662;</span></button>
+    <div class="faq-answer">Yes — add a countdown widget to your home screen so your retirement date is always visible. The widget displays years, months, and days remaining.</div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Can I set multiple retirement dates?</button>
-    <div class="faq-answer">
-      <div class="faq-answer-inner">With Pro, you can create multiple retirement scenarios — for example, comparing retiring at 55 vs. 60, or different service credit assumptions — and see how each affects your estimated pension.</div>
-    </div>
+    <button class="faq-question">Can I set multiple retirement dates? <span class="faq-chevron">&#9662;</span></button>
+    <div class="faq-answer">You can create multiple retirement scenarios — for example, comparing retiring at 55 vs. 60, or different service credit assumptions — and see how each affects your estimated pension.</div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">I found a bug or have a feature request. How do I reach you?</button>
-    <div class="faq-answer">
-      <div class="faq-answer-inner">Email us at aricthomas73@gmail.com and we'll get back to you as soon as possible. We love hearing feedback and feature ideas from users.</div>
-    </div>
+    <button class="faq-question">I found a bug or have a feature request. How do I reach you? <span class="faq-chevron">&#9662;</span></button>
+    <div class="faq-answer">Email us at aricthomas73@gmail.com and we'll get back to you as soon as possible. We love hearing feedback and feature ideas from users.</div>
   </div>
-</div>
 
-<div class="contact-strip">
-  <h3>Need help?</h3>
-  <p>We're happy to assist with any questions about Retire Countdown.</p>
-  <a href="mailto:aricthomas73@gmail.com" class="contact-btn">Email Support</a>
+  <div class="contact-card">
+    <h3>Still need help?</h3>
+    <p>Send us an email and we'll get back to you as soon as possible.</p>
+    <a href="mailto:aricthomas73@gmail.com" class="contact-btn">Email Support</a>
+  </div>
+
 </div>
 
 <footer>
@@ -457,14 +133,12 @@
 <script>
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      document.querySelectorAll('.faq-item').forEach(i => {
-        if (i !== item) i.classList.remove('open');
-      });
-      item.classList.toggle('open');
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
     });
   });
 </script>
-
 </body>
 </html>
