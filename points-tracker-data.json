@@ -1,0 +1,861 @@
+{
+  "about": [
+    "Points Tracker transfer data. This file is the single source of truth for transfer partners, ratios, scheduled changes and point valuations.",
+    "The app bundles this file and also downloads https://aricthomas73.github.io/points-tracker-data.json. A download is used only if its revision is higher than the bundled one and it passes validation.",
+    "To update rates without an App Store release: edit this file, raise revision (yyyymmddNN), then upload it to the aricthomas73.github.io repo as points-tracker-data.json.",
+    "ratio = partner points received per 1 card point. display is the text shown, e.g. 4:3 means 4 card points give 3 partner points (ratio 0.75).",
+    "scheduledChanges: action update (new ratio), add (new partner), remove (partner leaves). effective is the local day it takes effect. Before that day the app shows a note and reminds users who hold the source points.",
+    "Program names must match the names in RewardAccount.swift exactly. Run Cmd+U after editing."
+  ],
+  "schema": 1,
+  "revision": 2026101801,
+  "verifiedAsOf": "October 2026",
+  "valuationsAsOf": "October 2026",
+  "hotelDestinations": [
+    "Hilton Honors",
+    "Marriott Bonvoy",
+    "World of Hyatt",
+    "IHG One Rewards",
+    "Wyndham Rewards",
+    "Choice Privileges",
+    "Accor Live Limitless",
+    "Preferred Hotels (I Prefer)",
+    "Leaders Club (LHW)"
+  ],
+  "railDestinations": [
+    "Amtrak Guest Rewards"
+  ],
+  "sources": [
+    {
+      "name": "American Express (Amex)",
+      "comments": [
+        "AMEX Membership Rewards (re-verified Oct 18, 2026, unchanged; Aeromexico standard 1:1.6 confirmed, Oct 2026 20% bonus not stored)",
+        "Etihad Guest partnership ended June 30, 2026; Leaders Club (LHW) added July 28, 2026 at 1,000:250"
+      ],
+      "routes": [
+        {
+          "to": "Delta (SkyMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air Canada (Aeroplan)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "British Airways (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Iberia (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Aer Lingus (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Singapore Airlines (KrisFlyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "ANA (Mileage Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Avianca (LifeMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 0.8,
+          "display": "5:4"
+        },
+        {
+          "to": "Qatar Airways (Privilege Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Qantas (Frequent Flyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Emirates (Skywards)",
+          "ratio": 0.8,
+          "display": "5:4"
+        },
+        {
+          "to": "JetBlue (TrueBlue)",
+          "ratio": 0.8,
+          "display": "5:4"
+        },
+        {
+          "to": "Aeromexico Rewards",
+          "ratio": 1.6,
+          "display": "1:1.6"
+        },
+        {
+          "to": "Choice Privileges",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Hilton Honors",
+          "ratio": 2.0,
+          "display": "1:2"
+        },
+        {
+          "to": "Marriott Bonvoy",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Leaders Club (LHW)",
+          "ratio": 0.25,
+          "display": "4:1"
+        }
+      ]
+    },
+    {
+      "name": "Chase Ultimate Rewards",
+      "comments": [
+        "Chase Ultimate Rewards (re-verified Oct 2026)",
+        "Emirates dropped Oct 2025; Wyndham added Feb 2026.",
+        "Hyatt: 4:3 on Sapphire Preferred / Ink Preferred since Oct 1, 2026; Sapphire Reserve stays 1:1.",
+        "Rumored (Sept 2026, unconfirmed): Qantas and Cathay at 1:1. Not added until official.",
+        "Hyatt ratio is swapped at runtime from Settings > Your Cards. Re-verified Oct 18, 2026 (Sapphire Reserve for Business also 1:1)."
+      ],
+      "note": "Hyatt is 1:1 on Sapphire Reserve and 4:3 on Sapphire Preferred and Ink Preferred (since Oct 1, 2026). Choose your card in Settings.",
+      "routes": [
+        {
+          "to": "United (MileagePlus)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Southwest (Rapid Rewards)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JetBlue (TrueBlue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "British Airways (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Iberia (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Aer Lingus (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Singapore Airlines (KrisFlyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air Canada (Aeroplan)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "World of Hyatt",
+          "ratio": 1.0,
+          "display": "1:1",
+          "note": "Sapphire Reserve only"
+        },
+        {
+          "to": "Marriott Bonvoy",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "IHG One Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Wyndham Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        }
+      ]
+    },
+    {
+      "name": "Capital One Venture",
+      "comments": [
+        "Capital One Miles (re-verified Oct 2026, unchanged)",
+        "JAL, Qatar, and I Prefer added Sept 2025; Emirates devalued to 4:3 Jan 13, 2026.",
+        "Capital One's partner is technically Virgin Red, which moves to Flying Club 1:1 for free."
+      ],
+      "routes": [
+        {
+          "to": "Air Canada (Aeroplan)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Avianca (LifeMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "British Airways (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Singapore Airlines (KrisFlyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Turkish Airlines (Miles&Smiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 1.0,
+          "display": "1:1",
+          "note": "Via Virgin Red"
+        },
+        {
+          "to": "Qantas (Frequent Flyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Qatar Airways (Privilege Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Etihad (Etihad Guest)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Emirates (Skywards)",
+          "ratio": 0.75,
+          "display": "4:3"
+        },
+        {
+          "to": "Finnair (Plus)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "TAP Air Portugal (Miles&Go)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Aeromexico Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "EVA Air (Infinity MileageLands)",
+          "ratio": 0.75,
+          "display": "4:3"
+        },
+        {
+          "to": "JAL (Mileage Bank)",
+          "ratio": 0.75,
+          "display": "4:3"
+        },
+        {
+          "to": "Wyndham Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Choice Privileges",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JetBlue (TrueBlue)",
+          "ratio": 0.6,
+          "display": "5:3"
+        },
+        {
+          "to": "Accor Live Limitless",
+          "ratio": 0.5,
+          "display": "2:1"
+        },
+        {
+          "to": "Preferred Hotels (I Prefer)",
+          "ratio": 2.0,
+          "display": "1:2"
+        }
+      ]
+    },
+    {
+      "name": "Citi ThankYou",
+      "comments": [
+        "Citi ThankYou (verified Oct 2026). Rates shown are for premium cards (Strata Premier / Elite);",
+        "no annual fee cards are scaled to 70% at runtime when chosen in Settings → Your Cards.",
+        "JAL Mileage Bank added Sept 20, 2026 at 1:1 (launch bonus through Oct 24, 2026 not stored).",
+        "Choice devalued 1:2 → 1:1.5 and I Prefer 1:4 → 1:2 on Apr 19, 2026.",
+        "Only the legacy ThankYou Mastercard lost JetBlue (Sept 20, 2026); other no fee cards keep it at 1:0.7."
+      ],
+      "note": "Full rates need a premium card (Strata Premier or Strata Elite). No annual fee cards (Strata, Double Cash, Custom Cash) transfer at about 70% of these rates, and not every partner is available. Choose your card in Settings.",
+      "routes": [
+        {
+          "to": "American Airlines (AAdvantage)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Avianca (LifeMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Singapore Airlines (KrisFlyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Turkish Airlines (Miles&Smiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JetBlue (TrueBlue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JAL (Mileage Bank)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Qatar Airways (Privilege Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Etihad (Etihad Guest)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Qantas (Frequent Flyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Emirates (Skywards)",
+          "ratio": 0.8,
+          "display": "5:4"
+        },
+        {
+          "to": "EVA Air (Infinity MileageLands)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Thai Airways (Royal Orchid Plus)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Wyndham Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Choice Privileges",
+          "ratio": 1.5,
+          "display": "1:1.5"
+        },
+        {
+          "to": "Accor Live Limitless",
+          "ratio": 0.5,
+          "display": "2:1"
+        },
+        {
+          "to": "Preferred Hotels (I Prefer)",
+          "ratio": 2.0,
+          "display": "1:2"
+        },
+        {
+          "to": "Leaders Club (LHW)",
+          "ratio": 0.2,
+          "display": "5:1"
+        }
+      ]
+    },
+    {
+      "name": "Bilt Rewards",
+      "comments": [
+        "Bilt Rewards (verified Oct 2026)",
+        "Spirit REMOVED: Spirit Airlines shut down May 2, 2026 and Free Spirit points can't be redeemed.",
+        "Amtrak Guest Rewards added Sept 23, 2026 at 2:1.",
+        "Hyatt drops to 4:3 on Jan 1, 2027 (see scheduledChanges; confirmed by TPG Oct 1, 2026).",
+        "Singapore KrisFlyer removed (2026); Wyndham added Mar 25, 2026; I Prefer added June 22, 2026 at 1:2."
+      ],
+      "routes": [
+        {
+          "to": "World of Hyatt",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "United (MileagePlus)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Atmos Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Southwest (Rapid Rewards)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JAL (Mileage Bank)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air Canada (Aeroplan)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Avianca (LifeMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "British Airways (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Iberia (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Aer Lingus (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Qatar Airways (Privilege Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Etihad (Etihad Guest)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Emirates (Skywards)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Turkish Airlines (Miles&Smiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "TAP Air Portugal (Miles&Go)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Amtrak Guest Rewards",
+          "ratio": 0.5,
+          "display": "2:1"
+        },
+        {
+          "to": "Marriott Bonvoy",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Hilton Honors",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "IHG One Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Wyndham Rewards",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Accor Live Limitless",
+          "ratio": 0.6666666666666666,
+          "display": "3:2"
+        },
+        {
+          "to": "Preferred Hotels (I Prefer)",
+          "ratio": 2.0,
+          "display": "1:2"
+        }
+      ]
+    },
+    {
+      "name": "Wells Fargo Autograph",
+      "comments": [
+        "Wells Fargo Rewards (re-verified Oct 2026, unchanged)",
+        "JetBlue added Nov 2025; Wyndham Apr 15, 2026; Cathay Pacific Apr 28, 2026."
+      ],
+      "routes": [
+        {
+          "to": "Aer Lingus (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Avianca (LifeMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "British Airways (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Iberia (Avios)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JetBlue (TrueBlue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Choice Privileges",
+          "ratio": 2.0,
+          "display": "1:2"
+        },
+        {
+          "to": "Wyndham Rewards",
+          "ratio": 2.0,
+          "display": "1:2"
+        }
+      ]
+    },
+    {
+      "name": "U.S. Bank Altitude",
+      "comments": [
+        "U.S. Bank Altitude (NEW Oct 2026). Transfers launched Aug 2026; LifeMiles added Aug 29, 2026.",
+        "Only Altitude Reserve and legacy FlexPerks Reserve / Travel Rewards cards can transfer.",
+        "Flying Blue paused Aug 12 to Aug 17, 2026; Qantas paused and reported back Aug 27, 2026. Recheck before relying on Qantas."
+      ],
+      "note": "Only Altitude Reserve and legacy FlexPerks Reserve cards can transfer points.",
+      "routes": [
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Qantas (Frequent Flyer)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Avianca (LifeMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Ethiopian (ShebaMiles)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Accor Live Limitless",
+          "ratio": 0.5,
+          "display": "2:1"
+        }
+      ]
+    },
+    {
+      "name": "Marriott Bonvoy",
+      "comments": [
+        "Marriott Bonvoy → airlines (verified Oct 2026)",
+        "JetBlue REMOVED (no longer on Marriott's points to miles page).",
+        "Standard 3:1 with 5,000 bonus miles per 60,000 points, except Delta, American and Avianca (no bonus).",
+        "United gets 10,000 bonus miles per 60,000, shown at its effective 2:1."
+      ],
+      "note": "Most airlines add 5,000 bonus miles for every 60,000 points transferred (not Delta or American). United adds 10,000, shown here as its effective 2:1.",
+      "routes": [
+        {
+          "to": "United (MileagePlus)",
+          "ratio": 0.5,
+          "display": "2:1",
+          "note": "With 10,000 mile bonus per 60,000 points"
+        },
+        {
+          "to": "Delta (SkyMiles)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "American Airlines (AAdvantage)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Atmos Rewards",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "British Airways (Avios)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Air France / KLM (Flying Blue)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Singapore Airlines (KrisFlyer)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Air Canada (Aeroplan)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Southwest (Rapid Rewards)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "ANA (Mileage Club)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        }
+      ]
+    },
+    {
+      "name": "World of Hyatt",
+      "comments": [
+        "World of Hyatt → airlines (re-verified Oct 2026, unchanged). Standard 5:2 with a few exceptions."
+      ],
+      "routes": [
+        {
+          "to": "American Airlines (AAdvantage)",
+          "ratio": 0.4,
+          "display": "2.5:1"
+        },
+        {
+          "to": "United (MileagePlus)",
+          "ratio": 0.4,
+          "display": "2.5:1"
+        },
+        {
+          "to": "Delta (SkyMiles)",
+          "ratio": 0.4,
+          "display": "2.5:1"
+        },
+        {
+          "to": "Southwest (Rapid Rewards)",
+          "ratio": 0.48,
+          "display": "5000:2400"
+        },
+        {
+          "to": "Virgin Atlantic (Flying Club)",
+          "ratio": 0.6,
+          "display": "5:3"
+        },
+        {
+          "to": "Qantas (Frequent Flyer)",
+          "ratio": 0.48,
+          "display": "5000:2400"
+        }
+      ]
+    }
+  ],
+  "scheduledChanges": [
+    {
+      "source": "Bilt Rewards",
+      "destination": "World of Hyatt",
+      "action": "update",
+      "effective": "2027-01-01",
+      "ratio": 0.75,
+      "display": "4:3",
+      "comment": "Announced by Bilt Oct 1, 2026"
+    }
+  ],
+  "valuations": {
+    "American Express (Amex)": 2.0,
+    "Chase Ultimate Rewards": 2.05,
+    "Capital One Venture": 1.85,
+    "Citi ThankYou": 1.9,
+    "Bilt Rewards": 2.2,
+    "Wells Fargo Autograph": 1.75,
+    "U.S. Bank Altitude": 1.5,
+    "Bank of America Travel": 1.0,
+    "Discover": 1.0,
+    "Atmos Rewards": 1.55,
+    "American Airlines (AAdvantage)": 1.45,
+    "Delta (SkyMiles)": 1.2,
+    "United (MileagePlus)": 1.2,
+    "Southwest (Rapid Rewards)": 1.25,
+    "JetBlue (TrueBlue)": 1.35,
+    "British Airways (Avios)": 1.4,
+    "Iberia (Avios)": 1.4,
+    "Aer Lingus (Avios)": 1.4,
+    "Qatar Airways (Privilege Club)": 1.4,
+    "Finnair (Plus)": 1.4,
+    "Air France / KLM (Flying Blue)": 1.4,
+    "Emirates (Skywards)": 1.2,
+    "Singapore Airlines (KrisFlyer)": 1.3,
+    "ANA (Mileage Club)": 1.4,
+    "Avianca (LifeMiles)": 1.6,
+    "Virgin Atlantic (Flying Club)": 1.5,
+    "Air Canada (Aeroplan)": 1.5,
+    "Cathay Pacific (Asia Miles)": 1.3,
+    "Turkish Airlines (Miles&Smiles)": 1.1,
+    "Etihad (Etihad Guest)": 1.2,
+    "Qantas (Frequent Flyer)": 1.25,
+    "JAL (Mileage Bank)": 1.3,
+    "Aeromexico Rewards": 0.8,
+    "EVA Air (Infinity MileageLands)": 1.2,
+    "TAP Air Portugal (Miles&Go)": 1.1,
+    "Thai Airways (Royal Orchid Plus)": 1.0,
+    "Amtrak Guest Rewards": 2.67,
+    "Hilton Honors": 0.4,
+    "Marriott Bonvoy": 0.75,
+    "World of Hyatt": 1.65,
+    "IHG One Rewards": 0.6,
+    "Wyndham Rewards": 0.55,
+    "Choice Privileges": 0.85,
+    "Radisson Rewards": 0.25,
+    "Accor Live Limitless": 2.3,
+    "Best Western Rewards": 0.6,
+    "Preferred Hotels (I Prefer)": 0.5,
+    "Leaders Club (LHW)": 8.0
+  }
+}
