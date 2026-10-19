@@ -8,7 +8,7 @@
     "Program names must match the names in RewardAccount.swift exactly. Run Cmd+U after editing."
   ],
   "schema": 1,
-  "revision": 2026101801,
+  "revision": 2026101901,
   "verifiedAsOf": "October 2026",
   "valuationsAsOf": "October 2026",
   "hotelDestinations": [
@@ -761,7 +761,8 @@
     {
       "name": "World of Hyatt",
       "comments": [
-        "World of Hyatt → airlines (re-verified Oct 2026, unchanged). Standard 5:2 with a few exceptions."
+        "World of Hyatt → airlines (re-verified Oct 19, 2026). Standard 5:2 with a few exceptions.",
+        "Air Canada Aeroplan added Oct 19, 2026 at 2:1 (live since July 15, 2026 per Hyatt newsroom and terms; min 5,000, then 1,000 increments)."
       ],
       "routes": [
         {
@@ -793,6 +794,12 @@
           "to": "Qantas (Frequent Flyer)",
           "ratio": 0.48,
           "display": "5000:2400"
+        },
+        {
+          "to": "Air Canada (Aeroplan)",
+          "ratio": 0.5,
+          "display": "2:1",
+          "note": "Minimum 5,000 points"
         }
       ]
     }
