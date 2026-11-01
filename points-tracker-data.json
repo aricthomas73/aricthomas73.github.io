@@ -8,7 +8,7 @@
     "Program names must match the names in RewardAccount.swift exactly. Run Cmd+U after editing."
   ],
   "schema": 1,
-  "revision": 2026101901,
+  "revision": 2026102601,
   "verifiedAsOf": "October 2026",
   "valuationsAsOf": "October 2026",
   "hotelDestinations": [
@@ -347,7 +347,8 @@
         "no annual fee cards are scaled to 70% at runtime when chosen in Settings → Your Cards.",
         "JAL Mileage Bank added Sept 20, 2026 at 1:1 (launch bonus through Oct 24, 2026 not stored).",
         "Choice devalued 1:2 → 1:1.5 and I Prefer 1:4 → 1:2 on Apr 19, 2026.",
-        "Only the legacy ThankYou Mastercard lost JetBlue (Sept 20, 2026); other no fee cards keep it at 1:0.7."
+        "Only the legacy ThankYou Mastercard lost JetBlue (Sept 20, 2026); other no fee cards keep it at 1:0.7.",
+        "Copa ConnectMiles added Oct 25, 2026 at 1:1 (no fee cards 1:0.7, handled in Swift). Frequent Miler, Upgraded Points, Doctor of Credit."
       ],
       "note": "Full rates need a premium card (Strata Premier or Strata Elite). No annual fee cards (Strata, Double Cash, Custom Cash) transfer at about 70% of these rates, and not every partner is available. Choose your card in Settings.",
       "routes": [
@@ -393,6 +394,11 @@
         },
         {
           "to": "JAL (Mileage Bank)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "Copa Airlines (ConnectMiles)",
           "ratio": 1.0,
           "display": "1:1"
         },
@@ -458,6 +464,7 @@
       "comments": [
         "Bilt Rewards (verified Oct 2026)",
         "Spirit REMOVED: Spirit Airlines shut down May 2, 2026 and Free Spirit points can't be redeemed.",
+        "JetBlue TrueBlue added Oct 20, 2026 at 1:1 (Bilt/JetBlue press release; Frequent Miler, Upgraded Points). Bilt comments re-verified Oct 21, 2026.",
         "Amtrak Guest Rewards added Sept 23, 2026 at 2:1.",
         "Hyatt drops to 4:3 on Jan 1, 2027 (see scheduledChanges; confirmed by TPG Oct 1, 2026).",
         "Singapore KrisFlyer removed (2026); Wyndham added Mar 25, 2026; I Prefer added June 22, 2026 at 1:2."
@@ -480,6 +487,11 @@
         },
         {
           "to": "Southwest (Rapid Rewards)",
+          "ratio": 1.0,
+          "display": "1:1"
+        },
+        {
+          "to": "JetBlue (TrueBlue)",
           "ratio": 1.0,
           "display": "1:1"
         },
@@ -691,7 +703,8 @@
         "Marriott Bonvoy → airlines (verified Oct 2026)",
         "JetBlue REMOVED (no longer on Marriott's points to miles page).",
         "Standard 3:1 with 5,000 bonus miles per 60,000 points, except Delta, American and Avianca (no bonus).",
-        "United gets 10,000 bonus miles per 60,000, shown at its effective 2:1."
+        "United gets 10,000 bonus miles per 60,000, shown at its effective 2:1.",
+        "Copa ConnectMiles added to the app Oct 26, 2026 at 3:1 with the standard 5,000 bonus per 60,000 (Upgraded Points Oct 25, 2026; One Mile at a Time)."
       ],
       "note": "Most airlines add 5,000 bonus miles for every 60,000 points transferred (not Delta or American). United adds 10,000, shown here as its effective 2:1.",
       "routes": [
@@ -753,6 +766,11 @@
         },
         {
           "to": "Cathay Pacific (Asia Miles)",
+          "ratio": 0.3333333333333333,
+          "display": "3:1"
+        },
+        {
+          "to": "Copa Airlines (ConnectMiles)",
           "ratio": 0.3333333333333333,
           "display": "3:1"
         }
